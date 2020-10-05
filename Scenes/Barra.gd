@@ -28,6 +28,7 @@ func _input(event):
 			$Sprite.self_modulate = Color(1, 1, 1)
 			if Global.LIVES < 3:
 				Global.LIVES += 1
+				get_node("../../Interface").update_lives()
 				print("Lives = ", Global.LIVES)
 	
 func check_hit():
@@ -40,6 +41,7 @@ func miss():
 	$Sprite.self_modulate = Color(1, 0, 0)
 	$Timer.start()
 	Global.LIVES -=1
+	get_node("../../Interface").update_lives()
 	print("Lives = ", Global.LIVES)
 
 

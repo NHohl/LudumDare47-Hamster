@@ -12,7 +12,7 @@ var rotation_duration = Global.fases[Global.FASE]["rotation_duration"]
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	find_hamster()
-	sprite = hamster[Global.FASE].get_child(1)
+	sprite = hamster[0].get_child(1)
 	
 func _physics_process(delta):
 	if is_alive:
@@ -29,7 +29,7 @@ func move_hamster():
 			var new_position = Vector2()
 			new_position.x = cos(orbit_angle_offset) * radius.x
 			new_position.y = sin(orbit_angle_offset) * radius.y
-			hamster[Global.FASE].position = new_position
+			hamster[0].position = new_position
 	
 func find_hamster():
 	hamster = []

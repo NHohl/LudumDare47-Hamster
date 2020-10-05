@@ -15,7 +15,7 @@ func _ready():
 
 
 func _on_PlayButton_pressed():
-	emit_signal("start_game")
+	get_tree().change_scene("res://Scenes/Main.tscn")
 
 
 func _on_QuitButton_pressed():

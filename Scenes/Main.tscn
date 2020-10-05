@@ -7,7 +7,7 @@
 [ext_resource path="res://Scenes/GameManager.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Conductor.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Music/vai tomar no cu porra 3 segundo meu pinto.ogg" type="AudioStream" id=7]
-[ext_resource path="res://Scenes/TitleScreen.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Interface.tscn" type="PackedScene" id=8]
 
 [node name="Main" type="Node2D"]
 
@@ -42,7 +42,6 @@ scale = Vector2( 1, 0.7 )
 stream = ExtResource( 7 )
 volume_db = -29.309
 
-[node name="TitleScreen" parent="." instance=ExtResource( 8 )]
+[node name="Interface" parent="." instance=ExtResource( 8 )]
 [connection signal="body_exited" from="Wheel/Barra4" to="Wheel/Barra4" method="_on_Barra4_body_exited"]
 [connection signal="beat" from="Conductor" to="GameManager" method="_on_Conductor_beat"]
-[connection signal="start_game" from="TitleScreen" to="GameManager" method="_on_TitleScreen_start_game"]

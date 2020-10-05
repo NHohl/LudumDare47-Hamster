@@ -22,6 +22,8 @@ signal measure(position)
 func _ready():
 	sec_per_beat = 60.0 / bpm
 	set_stream(Global.fases[Global.FASE]["musica"])
+	play()
+	get_node("../Wheel/RotationController").is_alive = true
 	
 func reset():
 	set_stream(Global.fases[Global.FASE]["musica"])
