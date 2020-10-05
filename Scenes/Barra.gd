@@ -31,18 +31,20 @@ func _input(event):
 				get_node("../../Interface").update_lives()
 				print("Lives = ", Global.LIVES)
 	
-func check_hit():
-#	if is_hittable
-	pass
 
 
 func miss():
 	print("Deu miss")
+	play_miss()
 	$Sprite.self_modulate = Color(1, 0, 0)
 	$Timer.start()
 	Global.LIVES -=1
 	get_node("../../Interface").update_lives()
 	print("Lives = ", Global.LIVES)
+	
+func play_miss():
+	get_node("../../MissEffect").play()
+	print("Tried to play miss sound")
 
 
 func _on_Barra_body_entered(body):

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Textures/roda.png" type="Texture" id=1]
+[ext_resource path="res://rodinha.png" type="Texture" id=1]
 
 [node name="Wheel" type="Node2D"]
 

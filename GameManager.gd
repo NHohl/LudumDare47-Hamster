@@ -41,7 +41,9 @@ func _process(delta):
 func game_over():
 	get_node("../Conductor").stop()
 	get_node("../Wheel/RotationController").is_alive = false
-
+	Global.FASE = 0
+	Global.LIVES = 3
+	get_tree().change_scene("res://Scenes/TitleScreen.tscn")
 
 
 func next_level():

@@ -16,6 +16,7 @@ func _ready():
 
 func _on_PlayButton_pressed():
 	get_tree().change_scene("res://Scenes/Main.tscn")
+	print("apertou botão play")
 
 
 func _on_QuitButton_pressed():
