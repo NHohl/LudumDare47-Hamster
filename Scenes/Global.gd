@@ -1,6 +1,7 @@
 extends Node2D
 
 export var ROTATION_DURATION = 3
+export var LIVES = 3
 
 # Declare member variables here. Examples:
 # var a = 2

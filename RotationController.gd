@@ -6,6 +6,7 @@ var hamster = []
 var orbit_angle_offset = PI / 2 # Angle that first platform will orbit around controller
 var sprite
 var sprite_rotation = 0
+var is_alive = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,10 +14,11 @@ func _ready():
 	sprite = hamster[0].get_child(1)
 	
 func _physics_process(delta):
-	orbit_angle_offset += 2 * PI * delta / float(Global.ROTATION_DURATION)
-	# Wrap the angle to keep it nice and tidy, and to prevent unlikely overflow
-	orbit_angle_offset = wrapf(orbit_angle_offset, -PI, PI)
-	sprite_rotation += 360 * delta / float(Global.ROTATION_DURATION)
+	if is_alive:
+		orbit_angle_offset += 2 * PI * delta / float(Global.ROTATION_DURATION)
+		# Wrap the angle to keep it nice and tidy, and to prevent unlikely overflow
+		orbit_angle_offset = wrapf(orbit_angle_offset, -PI, PI)
+		sprite_rotation += 360 * delta / float(Global.ROTATION_DURATION)
 	move_hamster()
 	rotate_sprite()
 

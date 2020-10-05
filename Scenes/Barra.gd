@@ -25,7 +25,10 @@ func _input(event):
 		if is_hittable and is_hamster_in:
 			was_hit = true
 			is_hittable = false
-			$Sprite.self_modulate = Color(0, 0, 0)
+			$Sprite.self_modulate = Color(1, 1, 1)
+			if Global.LIVES < 3:
+				Global.LIVES += 1
+				print("Lives = ", Global.LIVES)
 	
 func check_hit():
 #	if is_hittable
@@ -34,7 +37,10 @@ func check_hit():
 
 func miss():
 	print("Deu miss")
-	
+	$Sprite.self_modulate = Color(1, 0, 0)
+	$Timer.start()
+	Global.LIVES -=1
+	print("Lives = ", Global.LIVES)
 
 
 func _on_Barra_body_entered(body):
@@ -44,3 +50,10 @@ func _on_Barra_body_entered(body):
 
 func _on_Barra_body_exited(body):
 	is_hamster_in = false
+	if is_hittable and !was_hit:
+		miss()
+	is_hittable = false
+
+
+func _on_Timer_timeout():
+	$Sprite.self_modulate = Color(1, 1, 1)

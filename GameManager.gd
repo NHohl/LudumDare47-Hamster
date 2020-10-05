@@ -29,6 +29,14 @@ func _on_Conductor_beat(position):
 #	contador+= 1
 #	print("contador do gamemanager = ",contador)
 	if position+2 in must_hit:
-		print("acender agora")
+#		print("acender agora")
 		bars[(position+1)%4].activate() #essa linha tá mandando a barra 4 mudar de cor e está funcionando, mas preciso escolher qual barra vai mudar
 	pass 
+
+func _process(delta):
+	if Global.LIVES < 0:
+		game_over()
+		
+func game_over():
+	get_node("../Conductor").stop()
+	get_node("../Wheel/RotationController").is_alive = false
