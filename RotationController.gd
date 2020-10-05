@@ -21,13 +21,13 @@ func _physics_process(delta):
 	rotate_sprite()
 
 func move_hamster():
-	var new_position = Vector2()
-	new_position.x = cos(orbit_angle_offset) * radius.x
-	new_position.y = sin(orbit_angle_offset) * radius.y
-	hamster[0].position = new_position
+	if get_node("../../Conductor").is_playing():
+		var new_position = Vector2()
+		new_position.x = cos(orbit_angle_offset) * radius.x
+		new_position.y = sin(orbit_angle_offset) * radius.y
+		hamster[0].position = new_position
 	
 func find_hamster():
-	# Reset the array, otherwise we'll just keep piling on platforms
 	hamster = []
 	for child in get_children():
 		hamster.append(child)

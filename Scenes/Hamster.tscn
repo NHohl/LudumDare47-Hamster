@@ -3,6 +3,7 @@
 [ext_resource path="res://Textures/hamster.png" type="Texture" id=1]
 
 [sub_resource type="CircleShape2D" id=1]
+radius = 30.8939
 
 [node name="Hamster" type="KinematicBody2D"]
 

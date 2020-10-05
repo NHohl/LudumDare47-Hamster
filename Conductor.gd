@@ -1,6 +1,6 @@
 extends AudioStreamPlayer
 
-export var bpm := 100
+export var bpm := 80
 export var measures := 4
 
 # Tracking the beat and song position
@@ -29,7 +29,7 @@ func _physics_process(_delta):
 		song_position -= AudioServer.get_output_latency()
 		song_position_in_beats = int(floor(song_position / sec_per_beat)) + beats_before_start
 		_report_beat()
-
+#	print("song_position_in_beats (condutor) = ",song_position_in_beats)
 
 func _report_beat():
 	if last_reported_beat < song_position_in_beats:
@@ -39,6 +39,7 @@ func _report_beat():
 		emit_signal("measure", measure)
 		last_reported_beat = song_position_in_beats
 		measure += 1
+#		print("condutor emitiu beat",song_position_in_beats)
 
 
 func play_with_beat_offset(num):

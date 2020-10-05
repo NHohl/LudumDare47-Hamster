@@ -1,16 +1,34 @@
 extends Node2D
 
+var bpm = 80
+var song_position = 0.0
+var sec_per_beat = 60.0 / bpm
+var contador = 0
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var must_hit = [4, 11,16, 22, 27]
 
+var bar1 #tentei criar separadamente e depois usar append para colocar na lista bars
+var bar2
+var bar3
+var bar4
+var bars = []
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+#	var hamster = preload("res://Scenes/RotationController.tscn").instance()
+#	get_node("../Wheel").add_child(hamster)
 
+	bars.append(get_node("../Wheel/Barra1"))
+	bars.append(get_node("../Wheel/Barra2"))
+	bars.append(get_node("../Wheel/Barra3"))
+	bars.append(get_node("../Wheel/Barra4"))
+	print(bars)
+	
+	get_node("../Conductor").play()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _on_Conductor_beat(position):
+#	contador+= 1
+#	print("contador do gamemanager = ",contador)
+	if position+2 in must_hit:
+		print("acender agora")
+		bars[(position+1)%4].activate() #essa linha tá mandando a barra 4 mudar de cor e está funcionando, mas preciso escolher qual barra vai mudar
+	pass 

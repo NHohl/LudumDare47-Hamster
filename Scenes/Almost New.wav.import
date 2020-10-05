@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Almost New.wav-64a31428d1c10dc32d49e43f6306600f.sample"
+
+[deps]
+
+source_file="res://Scenes/Almost New.wav"
+dest_files=[ "res://.import/Almost New.wav-64a31428d1c10dc32d49e43f6306600f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

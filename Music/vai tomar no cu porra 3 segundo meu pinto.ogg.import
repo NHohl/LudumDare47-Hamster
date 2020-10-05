@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/vai tomar no cu porra 3 segundo meu pinto.ogg-7af99737486f63bedf2425b6b8b7ee5d.oggstr"
+
+[deps]
+
+source_file="res://Music/vai tomar no cu porra 3 segundo meu pinto.ogg"
+dest_files=[ "res://.import/vai tomar no cu porra 3 segundo meu pinto.ogg-7af99737486f63bedf2425b6b8b7ee5d.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
