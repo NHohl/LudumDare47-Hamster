@@ -25,7 +25,6 @@ func _ready():
 	
 func reset():
 	set_stream(Global.fases[Global.FASE]["musica"])
-	song_position_in_beats = 0
 	bpm = Global.fases[Global.FASE]["bpm"]
 
 

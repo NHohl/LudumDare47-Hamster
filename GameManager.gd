@@ -36,7 +36,7 @@ func _process(delta):
 		game_over()
 	if Input.is_action_just_pressed("next_level"):
 		next_level()
-	print("FASE = ", Global.FASE)
+#	print("FASE = ", Global.FASE)
 		
 func game_over():
 	get_node("../Conductor").stop()
@@ -55,5 +55,6 @@ func next_level():
 	print("FASE = ", Global.FASE)
 	must_hit = Global.fases[Global.FASE]["batidas"]
 	bpm = Global.fases[Global.FASE]["bpm"]
+	get_node("../Wheel/RotationController").reset_hamster()
 	get_node("../Conductor").reset()
 	get_node("../Conductor").play()
