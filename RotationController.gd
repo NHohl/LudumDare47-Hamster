@@ -6,7 +6,7 @@ var hamster = []
 var orbit_angle_offset = PI / 2 # Angle that first platform will orbit around controller
 var sprite
 var sprite_rotation = 0
-var is_alive = true
+var is_alive = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

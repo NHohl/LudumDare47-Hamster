@@ -1,7 +1,7 @@
 extends AudioStreamPlayer
 
-export var bpm := 80
-export var measures := 4
+var bpm = Global.fases[Global.FASE]["bpm"]
+export var measures = 4
 
 # Tracking the beat and song position
 var song_position = 0.0
@@ -21,6 +21,12 @@ signal measure(position)
 
 func _ready():
 	sec_per_beat = 60.0 / bpm
+	set_stream(Global.fases[Global.FASE]["musica"])
+	
+func reset():
+	set_stream(Global.fases[Global.FASE]["musica"])
+	song_position_in_beats = 0
+	bpm = Global.fases[Global.FASE]["bpm"]
 
 
 func _physics_process(_delta):

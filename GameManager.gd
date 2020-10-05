@@ -1,11 +1,11 @@
 extends Node2D
 
-var bpm = 80
+var bpm = Global.fases[Global.FASE]["bpm"]
 var song_position = 0.0
 var sec_per_beat = 60.0 / bpm
 var contador = 0
 
-var must_hit = [4, 11,16, 22, 27]
+var must_hit = Global.fases[Global.FASE]["batidas"]
 
 var bar1 #tentei criar separadamente e depois usar append para colocar na lista bars
 var bar2
@@ -21,10 +21,8 @@ func _ready():
 	bars.append(get_node("../Wheel/Barra2"))
 	bars.append(get_node("../Wheel/Barra3"))
 	bars.append(get_node("../Wheel/Barra4"))
-	print(bars)
+#	print(bars)
 	
-	get_node("../Conductor").play()
-
 func _on_Conductor_beat(position):
 #	contador+= 1
 #	print("contador do gamemanager = ",contador)
@@ -36,7 +34,26 @@ func _on_Conductor_beat(position):
 func _process(delta):
 	if Global.LIVES < 0:
 		game_over()
+	if Input.is_action_just_pressed("next_level"):
+		next_level()
+	print("FASE = ", Global.FASE)
 		
 func game_over():
 	get_node("../Conductor").stop()
 	get_node("../Wheel/RotationController").is_alive = false
+
+func start_game():
+	get_node("../Conductor").play()
+	get_node("../Wheel/RotationController").is_alive = true
+
+
+func _on_TitleScreen_start_game():
+	start_game()
+
+func next_level():
+	Global.FASE+=1
+	print("FASE = ", Global.FASE)
+	must_hit = Global.fases[Global.FASE]["batidas"]
+	bpm = Global.fases[Global.FASE]["bpm"]
+	get_node("../Conductor").reset()
+	get_node("../Conductor").play()
